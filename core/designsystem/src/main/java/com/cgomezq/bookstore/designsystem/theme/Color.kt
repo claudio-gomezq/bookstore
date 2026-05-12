@@ -1,4 +1,4 @@
-package com.cgomezq.bookstore.ui.theme
+package com.cgomezq.bookstore.designsystem.theme
 
 import androidx.compose.ui.graphics.Color
 
