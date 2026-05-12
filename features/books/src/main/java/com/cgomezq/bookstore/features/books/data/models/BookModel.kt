@@ -4,12 +4,12 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class BookModel(
-    val isbn: Int,
+    val id: Long,
     val title: String,
     val author: String,
     val image: String,
     val summary: String,
     val priceCurrency: String,
-    val priceValue: String,
+    val priceValue: Int,
     val priceDisplayValue: String
 )

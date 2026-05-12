@@ -4,5 +4,5 @@ import com.cgomezq.bookstore.features.books.domain.entities.Book
 
 interface BooksRepository {
     suspend fun getBooks(): List<Book>
-    suspend fun getBookDetail(isbn: Int): Book
+    suspend fun getBookDetail(isbn: Long): Book
 }

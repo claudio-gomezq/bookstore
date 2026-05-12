@@ -6,7 +6,7 @@ import com.cgomezq.bookstore.features.books.domain.repositories.BooksRepository
 class GetBookDetail(
     private val repository: BooksRepository
 ) {
-    suspend operator fun invoke(isbn: Int): Book {
+    suspend operator fun invoke(isbn: Long): Book {
         return repository.getBookDetail(isbn)
     }
 }

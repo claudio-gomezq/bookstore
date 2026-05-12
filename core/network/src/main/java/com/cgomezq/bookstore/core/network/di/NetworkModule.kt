@@ -9,6 +9,10 @@ import retrofit2.Retrofit
 import retrofit2.converter.kotlinx.serialization.asConverterFactory
 
 val networkModule = module {
+    single<String> {
+        "https://my-json-server.typicode.com/claudio-gomezq/books/"
+    }
+
     single<Json> {
         Json {
             ignoreUnknownKeys = true
@@ -16,16 +20,16 @@ val networkModule = module {
         }
     }
 
-    single<Converter.Factory> { (json: Json) ->
-        json.asConverterFactory(contentType = "application/json; charset=UTF8".toMediaType())
+    single<Converter.Factory> {
+        get<Json>().asConverterFactory(contentType = "application/json; charset=UTF8".toMediaType())
     }
 
-    single<Retrofit> { (baseUrl: String, converter: Converter.Factory, httpClient: OkHttpClient) ->
+    single<Retrofit> {
         Retrofit
             .Builder()
-            .baseUrl(baseUrl)
-            .addConverterFactory(converter)
-            .client(httpClient)
+            .baseUrl(get<String>())
+            .addConverterFactory(get())
+            .client(get())
             .build()
     }
 }

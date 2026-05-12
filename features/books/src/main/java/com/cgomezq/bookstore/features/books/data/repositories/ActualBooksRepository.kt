@@ -18,7 +18,7 @@ class ActualBooksRepository(
         return response.map { book -> book.toBook() }
     }
 
-    override suspend fun getBookDetail(isbn: Int): Book {
+    override suspend fun getBookDetail(isbn: Long): Book {
         val response = handleResponse("Error getting book detail") {
             booksApi.getBookDetail(isbn)
         }
@@ -27,13 +27,13 @@ class ActualBooksRepository(
 
     private fun BookModel.toBook(): Book {
         return Book(
-            isbn = isbn,
+            isbn = id,
             title = title,
             author = author,
             summary = summary,
             coverUrl = image,
             price = Price(
-                value = priceValue,
+                value = priceValue.toString(),
                 currency = priceCurrency,
                 displayValue = priceDisplayValue
             )

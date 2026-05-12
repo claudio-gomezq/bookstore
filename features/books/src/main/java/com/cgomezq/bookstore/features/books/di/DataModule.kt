@@ -1,4 +1,4 @@
-package com.cgomezq.bookstore.features.books.data.di
+package com.cgomezq.bookstore.features.books.di
 
 import com.cgomezq.bookstore.features.books.data.api.BooksApi
 import org.koin.dsl.module
