@@ -1,6 +1,5 @@
-package com.cgomezq.bookstore.ui.theme
+package com.cgomezq.bookstore.designsystem.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme

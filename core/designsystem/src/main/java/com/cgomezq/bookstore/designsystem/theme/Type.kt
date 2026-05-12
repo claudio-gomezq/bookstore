@@ -1,4 +1,4 @@
-package com.cgomezq.bookstore.ui.theme
+package com.cgomezq.bookstore.designsystem.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
