@@ -2,6 +2,7 @@ package com.cgomezq.bookstore
 
 import androidx.annotation.DrawableRes
 import com.cgomezq.bookstore.features.books.ui.navigation.BooksDestinations
+import com.cgomezq.bookstore.features.favorites.presentation.navigation.FavoritesDestination
 import com.cgomezq.bookstore.designsystem.R
 
 enum class MainDestinations(
@@ -15,7 +16,7 @@ enum class MainDestinations(
         icon = R.drawable.ic_book
     ),
     Favorites(
-        destination = BooksDestinations.BookList,
+        destination = FavoritesDestination,
         label = "Favorites",
         icon = R.drawable.ic_favorite
     ),

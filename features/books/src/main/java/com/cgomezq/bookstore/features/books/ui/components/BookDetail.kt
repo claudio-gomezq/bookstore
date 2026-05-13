@@ -18,6 +18,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -87,7 +88,12 @@ private fun BookContent(modifier: Modifier, book: Book, addToFavorite: () -> Uni
             IconButton(onClick = addToFavorite) {
                 Icon(
                     painter = painterResource(DesignSystemR.drawable.ic_favorite),
-                    contentDescription = stringResource(R.string.books_favorite_content_description)
+                    contentDescription = stringResource(R.string.books_favorite_content_description),
+                    tint = if (book.isFavorite) {
+                        Color.Red
+                    } else {
+                        MaterialTheme.colorScheme.onSurfaceVariant
+                    }
                 )
             }
         }

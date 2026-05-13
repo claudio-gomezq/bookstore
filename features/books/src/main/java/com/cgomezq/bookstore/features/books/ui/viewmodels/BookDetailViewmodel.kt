@@ -2,6 +2,7 @@ package com.cgomezq.bookstore.features.books.ui.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.cgomezq.bookstore.core.common.contract.FavoriteManagerRepository
 import com.cgomezq.bookstore.core.network.exceptions.NetworkException
 import com.cgomezq.bookstore.features.books.domain.usecases.GetBookDetail
 import com.cgomezq.bookstore.features.books.ui.contract.BookDetailIntent
@@ -16,6 +17,7 @@ import kotlinx.coroutines.launch
 
 class BookDetailViewmodel(
     private val getBookDetail: GetBookDetail,
+    private val favoriteManagerRepository: FavoriteManagerRepository,
     private val isbn: Long,
 ) : ViewModel() {
     private val intents = MutableSharedFlow<BookDetailIntent>()
@@ -26,13 +28,24 @@ class BookDetailViewmodel(
             when (intent) {
                 BookDetailIntent.LoadBookDetail -> try {
                     emit(BookDetailState.Loading)
-                    emit(BookDetailState.ShowingBookDetail(book = getBookDetail(isbn)))
+                    val book = getBookDetail(isbn)
+                    val isFavorite = favoriteManagerRepository.isFavorite(isbn)
+                    emit(BookDetailState.ShowingBookDetail(book = book.copy(isFavorite = isFavorite)))
                 } catch (e: NetworkException) {
                     emit(BookDetailState.ShowingError(e.message))
                 }
 
                 is BookDetailIntent.AddToFavorite -> {
-                    // TODO
+                    val book = intent.book
+                    favoriteManagerRepository.toggleFavorite(
+                        isbn = book.isbn,
+                        title = book.title,
+                        author = book.author,
+                        imageUrl = book.coverUrl,
+                        priceDisplay = book.price.displayValue
+                    )
+                    val isFavorite = favoriteManagerRepository.isFavorite(book.isbn)
+                    emit(BookDetailState.ShowingBookDetail(book = book.copy(isFavorite = isFavorite)))
                 }
 
                 is BookDetailIntent.AddToCart -> {
