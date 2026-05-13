@@ -5,13 +5,9 @@ import okhttp3.OkHttpClient
 import org.koin.dsl.module
 
 val httpClientModule = module {
-    single<Set<Interceptor>> {
-        setOf()
-    }
-
-    single<OkHttpClient> { (interceptors: Set<Interceptor>) ->
+    single<OkHttpClient> {
         val builder = OkHttpClient.Builder()
-        interceptors.forEach {
+        getAll<Interceptor>().forEach {
             builder.addInterceptor(it)
         }
         builder.build()

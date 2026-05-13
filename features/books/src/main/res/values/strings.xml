@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="books_catalog_title">Catalog</string>
+    <string name="books_detail_title">Details</string>
+    <string name="books_no_books_available">No books available</string>
+    <string name="books_description_label">Description</string>
+    <string name="books_add_to_cart">Add to cart</string>
+    <string name="books_favorite_content_description">favorite</string>
+</resources>

@@ -40,9 +40,14 @@ android {
 }
 
 dependencies {
+
+    // Core modules
     implementation(project(":core:network"))
     implementation(project(":core:designsystem"))
     implementation(project(":core:common"))
+
+    // Feature modules
+    implementation(project(":features:books"))
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
@@ -52,6 +57,10 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.navigation.compose)
+
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
 
     implementation(platform(libs.koin.bom))
     implementation(libs.koin.core)
