@@ -19,13 +19,15 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
-import com.cgomezq.bookstore.designsystem.R
 import com.cgomezq.bookstore.designsystem.theme.BookstoreTheme
+import com.cgomezq.bookstore.features.books.R
 import com.cgomezq.bookstore.features.books.domain.entities.Book
 import com.cgomezq.bookstore.features.books.domain.entities.Price
+import com.cgomezq.bookstore.designsystem.R as DesignSystemR
 
 @Composable
 fun BookDetail(
@@ -57,7 +59,7 @@ fun BookDetail(
                 .padding(16.dp),
             onClick = addToCart
         ) {
-            Text("Add to cart")
+            Text(stringResource(R.string.books_add_to_cart))
         }
     }
 }
@@ -84,8 +86,8 @@ private fun BookContent(modifier: Modifier, book: Book, addToFavorite: () -> Uni
             }
             IconButton(onClick = addToFavorite) {
                 Icon(
-                    painter = painterResource(R.drawable.ic_favorite),
-                    contentDescription = "favorite"
+                    painter = painterResource(DesignSystemR.drawable.ic_favorite),
+                    contentDescription = stringResource(R.string.books_favorite_content_description)
                 )
             }
         }
@@ -96,7 +98,7 @@ private fun BookContent(modifier: Modifier, book: Book, addToFavorite: () -> Uni
             color = MaterialTheme.colorScheme.primary
         )
         Text(
-            text = "Description",
+            text = stringResource(R.string.books_description_label),
             style = MaterialTheme.typography.titleSmall,
         )
         Spacer(Modifier.height(4.dp))

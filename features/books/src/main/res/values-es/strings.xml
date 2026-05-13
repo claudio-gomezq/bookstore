@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="books_catalog_title">Catálogo</string>
+    <string name="books_detail_title">Detalles</string>
+    <string name="books_no_books_available">No hay libros disponibles</string>
+    <string name="books_description_label">Descripción</string>
+    <string name="books_add_to_cart">Agregar al carrito</string>
+    <string name="books_favorite_content_description">favorito</string>
+</resources>

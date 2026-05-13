@@ -15,7 +15,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.cgomezq.bookstore.features.books.R
 import com.cgomezq.bookstore.features.books.domain.entities.Book
 import com.cgomezq.bookstore.features.books.ui.components.BookList
 import com.cgomezq.bookstore.features.books.ui.contract.BookListState
@@ -28,7 +30,7 @@ fun BookListScreen(
 ) {
     Scaffold(
         topBar = {
-            TopAppBar(title = { Text("Catalog") })
+            TopAppBar(title = { Text(stringResource(R.string.books_catalog_title)) })
         },
         contentWindowInsets = WindowInsets()
     ) { paddingValues ->
@@ -54,7 +56,7 @@ fun BookListScreen(
                 BookListState.ShowingEmptyList -> {
                     Spacer(modifier = Modifier.padding(16.dp))
                     Text(
-                        text = "No books available"
+                        text = stringResource(R.string.books_no_books_available)
                     )
                 }
 

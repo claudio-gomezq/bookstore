@@ -14,7 +14,9 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.cgomezq.bookstore.features.books.R
 import com.cgomezq.bookstore.features.books.ui.components.BookDetail
 import com.cgomezq.bookstore.features.books.ui.contract.BookDetailIntent
 import com.cgomezq.bookstore.features.books.ui.contract.BookDetailState
@@ -27,7 +29,7 @@ fun BookDetailScreen(
 ) {
     Scaffold(
         topBar = {
-            TopAppBar(title = { Text("Details") })
+            TopAppBar(title = { Text(stringResource(R.string.books_detail_title)) })
         },
         contentWindowInsets = WindowInsets()
     ) { paddingValues ->
