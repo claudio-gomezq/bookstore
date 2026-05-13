@@ -12,7 +12,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.cgomezq.bookstore.designsystem.theme.BookstoreTheme
 import com.cgomezq.bookstore.features.cart.R
 
 @Composable
@@ -49,5 +51,16 @@ fun CartSummary(
         ) {
             Text(stringResource(R.string.cart_checkout_button))
         }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun CartSummaryPreview() {
+    BookstoreTheme {
+        CartSummary(
+            totalPrice = "$20.000",
+            onClearCart = {}
+        )
     }
 }

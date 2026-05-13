@@ -5,9 +5,9 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.navigation
-import com.cgomezq.bookstore.features.books.ui.navigation.BooksDestinations
-import com.cgomezq.bookstore.features.books.ui.navigation.bookDetailNavigation
-import com.cgomezq.bookstore.features.books.ui.navigation.booksNavigation
+import com.cgomezq.bookstore.features.books.presentation.navigation.BooksDestinations
+import com.cgomezq.bookstore.features.books.presentation.navigation.bookDetailNavigation
+import com.cgomezq.bookstore.features.books.presentation.navigation.booksNavigation
 import com.cgomezq.bookstore.features.cart.presentation.navigation.CartDestination
 import com.cgomezq.bookstore.features.cart.presentation.navigation.cartNavigation
 import com.cgomezq.bookstore.features.favorites.presentation.navigation.FavoritesDestination

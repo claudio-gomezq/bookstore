@@ -40,7 +40,7 @@ class ActualBooksRepositoryTest {
         assertEquals(1, result.size)
         assertEquals(1L, result[0].isbn)
         assertEquals("Title", result[0].title)
-        assertEquals("10000", result[0].price.value)
+        assertEquals(10000.0, result[0].price.value, 0.0)
     }
 
     @Test(expected = NetworkException::class)

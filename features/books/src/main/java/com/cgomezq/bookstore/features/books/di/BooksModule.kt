@@ -5,8 +5,8 @@ import com.cgomezq.bookstore.features.books.data.repositories.ActualBooksReposit
 import com.cgomezq.bookstore.features.books.domain.repositories.BooksRepository
 import com.cgomezq.bookstore.features.books.domain.usecases.GetBookDetail
 import com.cgomezq.bookstore.features.books.domain.usecases.GetBooks
-import com.cgomezq.bookstore.features.books.ui.viewmodels.BookDetailViewmodel
-import com.cgomezq.bookstore.features.books.ui.viewmodels.BookListViewmodel
+import com.cgomezq.bookstore.features.books.presentation.viewmodels.BookDetailViewmodel
+import com.cgomezq.bookstore.features.books.presentation.viewmodels.BookListViewmodel
 import org.koin.core.module.dsl.viewModel
 import org.koin.core.module.dsl.viewModelOf
 import org.koin.dsl.bind

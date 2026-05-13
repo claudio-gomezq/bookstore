@@ -15,8 +15,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.cgomezq.bookstore.designsystem.components.BookstoreListItem
+import com.cgomezq.bookstore.designsystem.theme.BookstoreTheme
 import com.cgomezq.bookstore.features.cart.R
 import com.cgomezq.bookstore.features.cart.domain.entities.CartItem
 
@@ -64,4 +66,24 @@ fun CartItemRow(
             }
         }
     )
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun CartItemRowPreview() {
+    BookstoreTheme {
+        CartItemRow(
+            item = CartItem(
+                isbn = 1L,
+                title = "Kotlin Programming",
+                author = "JetBrains",
+                coverUrl = "",
+                priceValue = 10000.0,
+                priceCurrency = "CLP",
+                priceDisplayValue = "$10.000",
+                quantity = 2
+            ),
+            onQuantityChange = {}
+        )
+    }
 }

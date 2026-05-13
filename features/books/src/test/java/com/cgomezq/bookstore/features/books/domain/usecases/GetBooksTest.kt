@@ -26,7 +26,7 @@ class GetBooksTest {
                 summary = "Test Summary",
                 coverUrl = "https://example.com/cover.jpg",
                 isFavorite = false,
-                price = Price("10000", "CLP", "$10.000")
+                price = Price(10000.0, "CLP", "$10.000")
             )
         )
         coEvery { repository.getBooks() } returns books

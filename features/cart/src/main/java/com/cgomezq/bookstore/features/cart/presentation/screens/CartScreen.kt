@@ -17,7 +17,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
+import com.cgomezq.bookstore.designsystem.theme.BookstoreTheme
 import com.cgomezq.bookstore.features.cart.R
+import com.cgomezq.bookstore.features.cart.domain.entities.CartItem
 import com.cgomezq.bookstore.features.cart.presentation.components.CartItemRow
 import com.cgomezq.bookstore.features.cart.presentation.components.CartSummary
 import com.cgomezq.bookstore.features.cart.presentation.contract.CartState
@@ -81,3 +84,34 @@ fun CartScreen(
         }
     }
 }
+
+@Preview(showBackground = true)
+@Composable
+private fun CartScreenPreview() {
+    BookstoreTheme {
+        CartScreen(
+            state = CartState.ShowingCart(
+                items = listOf(
+                    CartItem(1L, "Kotlin", "JetBrains", "", 10.0, "CLP", "$10", 1),
+                    CartItem(2L, "Android", "Google", "", 20.0, "CLP", "$20", 2)
+                ),
+                totalPrice = "$50.000"
+            ),
+            onQuantityChange = { _, _ -> },
+            onClearCart = {}
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun CartScreenEmptyPreview() {
+    BookstoreTheme {
+        CartScreen(
+            state = CartState.ShowingEmptyCart,
+            onQuantityChange = { _, _ -> },
+            onClearCart = {}
+        )
+    }
+}
+
