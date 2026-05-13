@@ -14,6 +14,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import com.cgomezq.bookstore.features.books.domain.entities.Book
 import com.cgomezq.bookstore.features.books.ui.components.BookList
@@ -42,6 +43,7 @@ fun BookListScreen(
                         modifier = Modifier
                             .size(64.dp)
                             .align(Alignment.Center)
+                            .testTag("LoadingIndicator")
                     )
                 }
 
