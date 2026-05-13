@@ -6,8 +6,12 @@ import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -25,11 +29,22 @@ import com.cgomezq.bookstore.features.books.presentation.contract.BookDetailStat
 @Composable
 fun BookDetailScreen(
     state: BookDetailState,
+    onBack: () -> Unit,
     emitIntent: (BookDetailIntent) -> Unit
 ) {
     Scaffold(
         topBar = {
-            TopAppBar(title = { Text(stringResource(R.string.books_detail_title)) })
+            TopAppBar(
+                title = { Text(stringResource(R.string.books_detail_title)) },
+                navigationIcon = {
+                    IconButton(onClick = onBack) {
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Default.ArrowBack,
+                            contentDescription = stringResource(R.string.books_back_content_description)
+                        )
+                    }
+                }
+            )
         },
         contentWindowInsets = WindowInsets()
     ) { paddingValues ->

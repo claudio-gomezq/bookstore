@@ -33,7 +33,7 @@ fun MainNavHost(
                     navController.navigate(BooksDestinations.BookDetail(isbn))
                 }
             )
-            bookDetailNavigation()
+            bookDetailNavigation(navController)
         }
 
         navigation<Destinations.Cart>(startDestination = CartDestination) {

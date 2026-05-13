@@ -15,7 +15,7 @@ import org.koin.core.parameter.parametersOf
 
 fun NavGraphBuilder.booksNavigation(navController: NavController) {
     bookListNavigation(navController)
-    bookDetailNavigation()
+    bookDetailNavigation(navController)
 }
 
 fun NavGraphBuilder.bookListNavigation(navController: NavController) {
@@ -31,7 +31,7 @@ fun NavGraphBuilder.bookListNavigation(navController: NavController) {
     }
 }
 
-fun NavGraphBuilder.bookDetailNavigation() {
+fun NavGraphBuilder.bookDetailNavigation(navController: NavController) {
     composable<BooksDestinations.BookDetail> {
         val route = it.toRoute<BooksDestinations.BookDetail>()
         val viewmodel = koinViewModel<BookDetailViewmodel>(
@@ -40,6 +40,7 @@ fun NavGraphBuilder.bookDetailNavigation() {
         val state by viewmodel.uiState.collectAsStateWithLifecycle()
         BookDetailScreen(
             state = state,
+            onBack = { navController.navigateUp() },
             emitIntent = viewmodel::emitIntent
         )
     }
