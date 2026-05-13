@@ -2,4 +2,5 @@
 <resources>
     <string name="favorites_title">Favorites</string>
     <string name="favorites_no_favorites_available">No favorite books yet</string>
+    <string name="favorites_remove_from_favorites">Remove from favorites</string>
 </resources>

@@ -10,8 +10,11 @@ import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import com.cgomezq.bookstore.designsystem.components.BookstoreListItem
+import com.cgomezq.bookstore.features.favorites.R
 import com.cgomezq.bookstore.designsystem.R as DesignSystemR
 import com.cgomezq.bookstore.features.favorites.domain.entities.FavoriteBook
 
@@ -36,7 +39,7 @@ fun FavoriteList(
 }
 
 @Composable
-fun FavoriteItem(
+private fun FavoriteItem(
     favorite: FavoriteBook,
     onClick: () -> Unit,
     onRemoveFavorite: () -> Unit
@@ -49,10 +52,13 @@ fun FavoriteItem(
         imageUrl = favorite.imageUrl,
         onClick = onClick,
         trailingContent = {
-            IconButton(onClick = onRemoveFavorite) {
+            IconButton(
+                modifier = Modifier.testTag("RemoveFavoriteButton_${favorite.isbn}"),
+                onClick = onRemoveFavorite
+            ) {
                 Icon(
                     painter = painterResource(DesignSystemR.drawable.ic_favorite),
-                    contentDescription = null,
+                    contentDescription = stringResource(R.string.favorites_remove_from_favorites),
                     tint = Color.Red
                 )
             }
