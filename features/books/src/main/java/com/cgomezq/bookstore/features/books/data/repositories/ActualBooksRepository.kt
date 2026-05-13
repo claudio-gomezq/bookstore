@@ -34,7 +34,7 @@ class ActualBooksRepository(
             coverUrl = image,
             isFavorite = isFavorite,
             price = Price(
-                value = priceValue.toString(),
+                value = priceValue.toDouble(),
                 currency = priceCurrency,
                 displayValue = priceDisplayValue
             )
