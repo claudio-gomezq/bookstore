@@ -6,5 +6,6 @@ data class Book(
     val author: String,
     val summary: String,
     val coverUrl: String,
+    val isFavorite: Boolean,
     val price: Price
 )

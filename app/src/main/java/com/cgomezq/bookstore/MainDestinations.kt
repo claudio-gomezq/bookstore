@@ -2,6 +2,7 @@ package com.cgomezq.bookstore
 
 import androidx.annotation.DrawableRes
 import com.cgomezq.bookstore.features.books.ui.navigation.BooksDestinations
+import com.cgomezq.bookstore.designsystem.R
 
 enum class MainDestinations(
     val destination: Any,

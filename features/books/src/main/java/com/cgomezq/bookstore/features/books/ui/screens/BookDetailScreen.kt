@@ -15,19 +15,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.cgomezq.bookstore.features.books.domain.entities.Book
-import com.cgomezq.bookstore.features.books.ui.components.BookList
-import com.cgomezq.bookstore.features.books.ui.contract.BookListState
+import com.cgomezq.bookstore.features.books.ui.components.BookDetail
+import com.cgomezq.bookstore.features.books.ui.contract.BookDetailIntent
+import com.cgomezq.bookstore.features.books.ui.contract.BookDetailState
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun BookListScreen(
-    state: BookListState,
-    onBookClick: (Book) -> Unit
+fun BookDetailScreen(
+    state: BookDetailState,
+    emitIntent: (BookDetailIntent) -> Unit
 ) {
     Scaffold(
         topBar = {
-            TopAppBar(title = { Text("Catalog") })
+            TopAppBar(title = { Text("Details") })
         },
         contentWindowInsets = WindowInsets()
     ) { paddingValues ->
@@ -37,7 +37,7 @@ fun BookListScreen(
                 .fillMaxSize()
         ) {
             when (state) {
-                BookListState.Loading -> {
+                BookDetailState.Loading -> {
                     CircularProgressIndicator(
                         modifier = Modifier
                             .size(64.dp)
@@ -45,23 +45,25 @@ fun BookListScreen(
                     )
                 }
 
-                is BookListState.ShowingBookList -> {
-                    BookList(books = state.books, onBookClick = onBookClick)
-                }
-
-                BookListState.ShowingEmptyList -> {
-                    Spacer(modifier = Modifier.padding(16.dp))
-                    Text(
-                        text = "No books available"
+                is BookDetailState.ShowingBookDetail -> {
+                    BookDetail(
+                        book = state.book,
+                        addToFavorite = {
+                            emitIntent(BookDetailIntent.AddToFavorite(state.book))
+                        },
+                        addToCart = {
+                            emitIntent(BookDetailIntent.AddToCart(state.book))
+                        }
                     )
                 }
 
-                is BookListState.ShowingError -> {
+                is BookDetailState.ShowingError -> {
                     Spacer(modifier = Modifier.padding(16.dp))
                     Text(
                         text = state.message
                     )
                 }
+
             }
         }
     }

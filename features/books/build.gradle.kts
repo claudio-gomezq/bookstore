@@ -1,6 +1,5 @@
 plugins {
     alias(libs.plugins.android.library)
-    alias(libs.plugins.koin)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.kotlin.compose)
 }
@@ -46,10 +45,7 @@ dependencies {
     implementation(libs.material)
 
     implementation(platform(libs.koin.bom))
-    implementation(libs.koin.core)
     implementation(libs.koin.androidx.compose)
-    implementation(libs.koin.android)
-    implementation(libs.koin.compose.viewmodel)
 
     implementation(libs.coil.compose)
     implementation(libs.coil.network.okhttp)

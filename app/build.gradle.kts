@@ -1,6 +1,5 @@
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.koin)
     alias(libs.plugins.kotlin.compose)
 }
 

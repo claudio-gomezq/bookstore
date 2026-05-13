@@ -97,7 +97,8 @@ private fun BookItemPreview() {
                         value = "1000",
                         currency = "CLP",
                         displayValue = "$1.000"
-                    )
+                    ),
+                    isFavorite = false
                 ),
                 onClick = {}
             )

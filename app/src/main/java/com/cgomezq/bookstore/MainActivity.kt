@@ -34,7 +34,9 @@ class MainActivity : ComponentActivity() {
         setContent {
             BookstoreTheme {
                 val navController = rememberNavController()
-                var selectedDestination by rememberSaveable { mutableIntStateOf(0) }
+                var selectedDestination by rememberSaveable {
+                    mutableIntStateOf(MainDestinations.Books.ordinal)
+                }
                 setSingletonImageLoaderFactory { context ->
                     ImageLoader.Builder(context)
                         .components {
@@ -54,8 +56,10 @@ class MainActivity : ComponentActivity() {
                                 NavigationBarItem(
                                     selected = selectedDestination == it.ordinal,
                                     onClick = {
-                                        navController.navigate(route = it.destination)
-                                        selectedDestination = it.ordinal
+                                        if (selectedDestination != it.ordinal) {
+                                            navController.navigate(route = it.destination)
+                                            selectedDestination = it.ordinal
+                                        }
                                     },
                                     icon = {
                                         Icon(
