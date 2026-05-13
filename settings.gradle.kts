@@ -24,4 +24,10 @@ dependencyResolutionManagement {
 
 rootProject.name = "Bookstore"
 include(":app")
-include(":network")
+
+include(":core:network")
+include(":core:designsystem")
+include(":core:common")
+include(":features:books")
+include(":features:favorites")
+include(":features:cart")

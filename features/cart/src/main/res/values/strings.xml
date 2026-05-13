@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="cart_title">Shopping Cart</string>
+    <string name="cart_empty_message">Your cart is empty</string>
+    <string name="cart_total_label">Total:</string>
+    <string name="cart_checkout_button">Checkout</string>
+    <string name="cart_increase_quantity">Increase quantity</string>
+    <string name="cart_decrease_quantity">Decrease quantity</string>
+</resources>
