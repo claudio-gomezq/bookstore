@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="favorites_title">Favoritos</string>
+    <string name="favorites_no_favorites_available">Aún no hay libros favoritos</string>
+</resources>

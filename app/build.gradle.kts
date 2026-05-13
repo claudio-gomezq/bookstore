@@ -48,6 +48,7 @@ dependencies {
 
     // Feature modules
     implementation(project(":features:books"))
+    implementation(project(":features:favorites"))
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)

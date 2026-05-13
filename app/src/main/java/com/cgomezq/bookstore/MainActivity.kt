@@ -25,6 +25,7 @@ import coil3.network.okhttp.OkHttpNetworkFetcherFactory
 import com.cgomezq.bookstore.designsystem.theme.BookstoreTheme
 import com.cgomezq.bookstore.features.books.ui.navigation.BooksDestinations
 import com.cgomezq.bookstore.features.books.ui.navigation.booksNavigation
+import com.cgomezq.bookstore.features.favorites.presentation.navigation.favoritesNavigation
 import okhttp3.OkHttpClient
 
 class MainActivity : ComponentActivity() {
@@ -79,6 +80,11 @@ class MainActivity : ComponentActivity() {
                         startDestination = BooksDestinations.BookList
                     ) {
                         booksNavigation(navController)
+                        favoritesNavigation(
+                            onNavigateToBookDetail = { isbn ->
+                                navController.navigate(BooksDestinations.BookDetail(isbn))
+                            }
+                        )
                     }
                 }
             }
