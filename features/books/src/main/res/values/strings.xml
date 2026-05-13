@@ -6,4 +6,5 @@
     <string name="books_description_label">Description</string>
     <string name="books_add_to_cart">Add to cart</string>
     <string name="books_favorite_content_description">favorite</string>
+    <string name="books_back_content_description">back</string>
 </resources>
