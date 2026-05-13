@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -49,6 +50,7 @@ dependencies {
     // Feature modules
     implementation(project(":features:books"))
     implementation(project(":features:favorites"))
+    implementation(project(":features:cart"))
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
