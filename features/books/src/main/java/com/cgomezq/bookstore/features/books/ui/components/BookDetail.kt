@@ -129,7 +129,7 @@ private fun BookDetailPreview() {
                     summary = "",
                     coverUrl = "",
                     price = Price(
-                        value = "1000",
+                        value = 1000.0,
                         currency = "CLP",
                         displayValue = "$1.000"
                     ),

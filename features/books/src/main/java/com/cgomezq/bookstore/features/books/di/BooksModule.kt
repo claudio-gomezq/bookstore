@@ -27,7 +27,7 @@ val domainModule = module {
 
 val viewModelModule = module {
     viewModelOf(::BookListViewmodel)
-    viewModel { params -> BookDetailViewmodel(get(), get(), params.get()) }
+    viewModel { params -> BookDetailViewmodel(get(), get(), get(), params.get()) }
 }
 
 val booksModule = module {

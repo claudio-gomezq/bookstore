@@ -14,6 +14,11 @@ import org.koin.androidx.compose.koinViewModel
 import org.koin.core.parameter.parametersOf
 
 fun NavGraphBuilder.booksNavigation(navController: NavController) {
+    bookListNavigation(navController)
+    bookDetailNavigation()
+}
+
+fun NavGraphBuilder.bookListNavigation(navController: NavController) {
     composable<BooksDestinations.BookList> {
         val viewmodel = koinViewModel<BookListViewmodel>()
         val state by viewmodel.uiState.collectAsStateWithLifecycle()
@@ -24,6 +29,9 @@ fun NavGraphBuilder.booksNavigation(navController: NavController) {
             }
         )
     }
+}
+
+fun NavGraphBuilder.bookDetailNavigation() {
     composable<BooksDestinations.BookDetail> {
         val route = it.toRoute<BooksDestinations.BookDetail>()
         val viewmodel = koinViewModel<BookDetailViewmodel>(

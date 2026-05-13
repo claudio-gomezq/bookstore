@@ -3,6 +3,7 @@ package com.cgomezq.bookstore.features.books.ui.viewmodels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cgomezq.bookstore.core.common.contract.FavoriteManagerRepository
+import com.cgomezq.bookstore.core.common.contract.CartManagerRepository
 import com.cgomezq.bookstore.core.network.exceptions.NetworkException
 import com.cgomezq.bookstore.features.books.domain.usecases.GetBookDetail
 import com.cgomezq.bookstore.features.books.ui.contract.BookDetailIntent
@@ -18,6 +19,7 @@ import kotlinx.coroutines.launch
 class BookDetailViewmodel(
     private val getBookDetail: GetBookDetail,
     private val favoriteManagerRepository: FavoriteManagerRepository,
+    private val cartManagerRepository: CartManagerRepository,
     private val isbn: Long,
 ) : ViewModel() {
     private val intents = MutableSharedFlow<BookDetailIntent>()
@@ -49,7 +51,16 @@ class BookDetailViewmodel(
                 }
 
                 is BookDetailIntent.AddToCart -> {
-                    // TODO
+                    val book = intent.book
+                    cartManagerRepository.addToCart(
+                        isbn = book.isbn,
+                        title = book.title,
+                        author = book.author,
+                        imageUrl = book.coverUrl,
+                        priceValue = book.price.value,
+                        priceCurrency = book.price.currency,
+                        priceDisplay = book.price.displayValue
+                    )
                 }
             }
         }
