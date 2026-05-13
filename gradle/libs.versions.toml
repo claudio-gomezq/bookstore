@@ -21,6 +21,8 @@ kotlinx-coroutines-test = "1.11.0"
 mockk = "1.14.9"
 turbine = "1.2.1"
 runtime = "1.11.1"
+room = "2.8.4"
+ksp = "2.3.7"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -54,6 +56,9 @@ koin-bom = { module = "io.insert-koin:koin-bom", version.ref = "koinBom" }
 koin-test = { module = "io.insert-koin:koin-test" }
 koin-core = { module = "io.insert-koin:koin-core" }
 koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose" }
+androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -62,3 +67,4 @@ koin = { id = "io.insert-koin.compiler.plugin", version.ref = "koinPlugin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref ="kotlin"}
 android-library = { id = "com.android.library", version.ref = "agp" }
 jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
